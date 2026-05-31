@@ -20,6 +20,7 @@
                 homeLogo: 'index.html',
                 jogos: 'pages/jogos-historicos.html',
                 elencos: 'pages/elencos.html',
+                mascotes: 'pages/mascotes.html',
                 contato: 'pages/contato.html'
             };
         } else if (depth === 1) {
@@ -28,6 +29,7 @@
                 homeLogo: '../index.html',
                 jogos: 'jogos-historicos.html',
                 elencos: 'elencos.html',
+                mascotes: 'mascotes.html',
                 contato: 'contato.html'
             };
         } else {
@@ -36,6 +38,7 @@
                 homeLogo: '../../index.html',
                 jogos: '../jogos-historicos.html',
                 elencos: '../elencos.html',
+                mascotes: '../mascotes.html',
                 contato: '../contato.html'
             };
         }
@@ -51,6 +54,7 @@
             .replace(/\{\{NAV_HOME\}\}/g, nav.home)
             .replace(/\{\{NAV_JOGOS\}\}/g, nav.jogos)
             .replace(/\{\{NAV_ELENCOS\}\}/g, nav.elencos)
+            .replace(/\{\{NAV_MASCOTES\}\}/g, nav.mascotes)
             .replace(/\{\{NAV_CONTATO\}\}/g, nav.contato);
     }
 

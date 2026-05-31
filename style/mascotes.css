@@ -1,0 +1,201 @@
+/* ===========================
+   Mascotes Hero
+   =========================== */
+.mascotes-hero {
+    position: relative;
+    min-height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.mascotes-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, var(--green-dark) 0%, var(--blue-dark) 50%, var(--dark) 100%);
+    z-index: -2;
+}
+
+.mascotes-hero__bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(255, 223, 0, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(0, 168, 107, 0.08) 0%, transparent 40%);
+}
+
+.mascotes-hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2rem;
+}
+
+.mascotes-hero__title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--white);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.mascotes-hero__text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.15rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ===========================
+   Mascotes Intro
+   =========================== */
+.mascotes-intro {
+    padding: 5rem 2rem;
+    background: var(--white);
+}
+
+.mascotes-intro__container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mascotes-intro__text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--dark-soft);
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+/* ===========================
+   Mascotes Grid
+   =========================== */
+.mascotes-grid {
+    padding: 4rem 2rem 6rem;
+    background: var(--off-white);
+}
+
+.mascotes-grid__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2.5rem;
+}
+
+/* ===========================
+   Mascote Card
+   =========================== */
+.mascote-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.mascote-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.mascote-card__img-wrapper {
+    width: 100%;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0, 77, 37, 0.05), rgba(0, 39, 118, 0.05));
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+.mascote-card__img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform var(--transition);
+}
+
+.mascote-card:hover .mascote-card__img {
+    transform: scale(1.08);
+}
+
+.mascote-card__content {
+    padding: 1.5rem 1.75rem 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.mascote-card__year {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--green-mid);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    width: fit-content;
+    margin-bottom: 0.5rem;
+}
+
+.mascote-card__name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--green-dark);
+    margin-bottom: 0.25rem;
+}
+
+.mascote-card__country {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--blue-mid);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mascote-card__desc {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--dark-soft);
+    flex: 1;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 900px) {
+    .mascotes-grid__container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .mascote-card__img-wrapper {
+        height: 240px;
+    }
+}
+
+@media (max-width: 600px) {
+    .mascotes-intro {
+        padding: 3rem 1rem;
+    }
+
+    .mascotes-grid {
+        padding: 3rem 1rem 4rem;
+    }
+
+    .mascotes-grid__container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .mascote-card__img-wrapper {
+        height: 220px;
+    }
+}
