@@ -1,6 +1,3 @@
-// ===========================
-// Jogos Históricos - Parallax on hero
-// ===========================
 const jhHeroBg = document.querySelector('.jh-hero__bg');
 const jhHeroContent = document.querySelector('.jh-hero__content');
 
@@ -17,9 +14,6 @@ function jhParallax() {
     }
 }
 
-// ===========================
-// Staggered scroll animations for timeline cards
-// ===========================
 const jhTimelineItems = document.querySelectorAll('.jh-timeline__item');
 
 const jhObserver = new IntersectionObserver((entries) => {
@@ -38,9 +32,6 @@ const jhObserver = new IntersectionObserver((entries) => {
 
 jhTimelineItems.forEach(item => jhObserver.observe(item));
 
-// ===========================
-// Parallax with throttle
-// ===========================
 let jhTicking = false;
 window.addEventListener('scroll', () => {
     if (!jhTicking) {
@@ -52,9 +43,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// ===========================
-// Card tilt effect on mouse (desktop)
-// ===========================
 const jhCards = document.querySelectorAll('.jh-timeline__card');
 
 jhCards.forEach(card => {

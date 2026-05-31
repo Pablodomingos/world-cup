@@ -1,10 +1,5 @@
-// ===========================
-// Main Script
-// Waits for components to load, then initializes interactive features.
-// ===========================
 
 function initComponents() {
-    // DOM Elements (injected by component loader)
     const hamburger = document.getElementById('hamburger');
     const sidebar = document.getElementById('sidebar');
     const sidebarClose = document.getElementById('sidebar-close');
@@ -13,7 +8,6 @@ function initComponents() {
     const header = document.querySelector('.header');
     const scrollTopBtn = document.getElementById('scroll-top');
 
-    // Sidebar Toggle
     function openSidebar() {
         sidebar.classList.add('sidebar--open');
         sidebarOverlay.classList.add('sidebar__overlay--visible');
@@ -45,7 +39,6 @@ function initComponents() {
         link.addEventListener('click', closeSidebar);
     });
 
-    // Header Scroll Effect
     if (header) {
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 80) {
@@ -56,7 +49,6 @@ function initComponents() {
         });
     }
 
-    // Scroll to Top Button
     if (scrollTopBtn) {
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 400) {
@@ -71,7 +63,6 @@ function initComponents() {
         });
     }
 
-    // Keyboard Accessibility: Close sidebar on Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && sidebar && sidebar.classList.contains('sidebar--open')) {
             closeSidebar();
@@ -79,11 +70,7 @@ function initComponents() {
     });
 }
 
-// ===========================
-// Page Content Features (don't depend on loaded components)
-// ===========================
 function initPageFeatures() {
-    // Scroll Animations (Intersection Observer)
     const animatedElements = document.querySelectorAll('[data-animate]');
 
     const observer = new IntersectionObserver((entries) => {
@@ -101,7 +88,6 @@ function initPageFeatures() {
 
     animatedElements.forEach(el => observer.observe(el));
 
-    // Parallax Effect on Scroll
     const heroParallax = document.querySelector('.hero__parallax-bg');
     const historiaParallax = document.querySelector('.historia__parallax-layer');
     const heroContent = document.querySelector('.hero__content');
@@ -139,7 +125,6 @@ function initPageFeatures() {
         }
     });
 
-    // Timeline Cards: Stagger animation on scroll
     const timelineItems = document.querySelectorAll('.timeline__item');
 
     const timelineObserver = new IntersectionObserver((entries) => {
@@ -158,7 +143,6 @@ function initPageFeatures() {
 
     timelineItems.forEach(item => timelineObserver.observe(item));
 
-    // Smooth ball rotation on mouse move (desktop)
     const ballImages = document.querySelectorAll('.timeline__card-img img');
 
     document.addEventListener('mousemove', (e) => {
@@ -175,11 +159,6 @@ function initPageFeatures() {
     });
 }
 
-// ===========================
-// Initialization
-// ===========================
-// Page content features can run immediately
 initPageFeatures();
 
-// Component-dependent features wait for loader
 document.addEventListener('components:loaded', initComponents);

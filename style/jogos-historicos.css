@@ -1,6 +1,4 @@
-/* ===========================
-   Jogos Históricos - Hero
-   =========================== */
+
 .jh-hero {
     position: relative;
     min-height: 100vh;
@@ -82,10 +80,6 @@
     color: var(--yellow);
     text-shadow: 0 0 20px rgba(255, 223, 0, 0.5);
 }
-
-/* ===========================
-   Jogos Históricos - Timeline
-   =========================== */
 .jh-timeline {
     padding: 6rem 2rem;
     background: var(--off-white);
@@ -116,8 +110,6 @@
     transform: translateX(-50%);
     border-radius: 2px;
 }
-
-/* Timeline Item Base */
 .jh-timeline__item {
     position: relative;
     display: flex;
@@ -129,20 +121,14 @@
 .jh-timeline__item:last-child {
     margin-bottom: 0;
 }
-
-/* Left aligned items */
 .jh-timeline__item--left {
     justify-content: flex-start;
     padding-right: calc(50% + 40px);
 }
-
-/* Right aligned items */
 .jh-timeline__item--right {
     justify-content: flex-end;
     padding-left: calc(50% + 40px);
 }
-
-/* Timeline Marker */
 .jh-timeline__marker {
     position: absolute;
     left: 50%;
@@ -165,8 +151,6 @@
     border: 3px solid var(--yellow);
     box-shadow: 0 0 20px rgba(255, 223, 0, 0.3), 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-
-/* Timeline Card */
 .jh-timeline__card {
     background: var(--white);
     border-radius: 16px;
@@ -252,10 +236,6 @@
     font-size: 0.9rem;
     color: var(--green-dark);
 }
-
-/* ===========================
-   Scroll Animations
-   =========================== */
 [data-animate="fade-right"] {
     opacity: 0;
     transform: translateX(-60px);
@@ -273,10 +253,6 @@
     opacity: 1;
     transform: translateX(0);
 }
-
-/* ===========================
-   Responsive - Tablet
-   =========================== */
 @media (max-width: 900px) {
     .jh-timeline__line {
         left: 24px;
@@ -299,10 +275,6 @@
         font-size: 0.75rem;
     }
 }
-
-/* ===========================
-   Responsive - Mobile
-   =========================== */
 @media (max-width: 600px) {
     .jh-timeline {
         padding: 4rem 1rem;
@@ -352,10 +324,6 @@
         margin-bottom: 3.5rem;
     }
 }
-
-/* ===========================
-   Large Screens
-   =========================== */
 @media (min-width: 1200px) {
     .jh-timeline__track {
         max-width: 1200px;

@@ -1,6 +1,4 @@
-/* ===========================
-   CSS Variables / Design Tokens
-   =========================== */
+
 :root {
     --green-dark: #004d25;
     --green-mid: #006b3f;
@@ -26,10 +24,6 @@
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.25);
 }
-
-/* ===========================
-   Reset & Base
-   =========================== */
 *,
 *::before,
 *::after {
@@ -65,10 +59,6 @@ a {
 ul {
     list-style: none;
 }
-
-/* ===========================
-   Header
-   =========================== */
 .header {
     position: fixed;
     top: 0;
@@ -116,10 +106,6 @@ ul {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
-
-/* ===========================
-   Hamburger Button
-   =========================== */
 .hamburger {
     display: flex;
     flex-direction: column;
@@ -151,10 +137,6 @@ ul {
 .hamburger--active .hamburger__line:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -6px);
 }
-
-/* ===========================
-   Sidebar Navigation
-   =========================== */
 .sidebar {
     position: fixed;
     top: 0;
@@ -228,10 +210,6 @@ ul {
     opacity: 1;
     visibility: visible;
 }
-
-/* ===========================
-   Hero Section (Seção 1)
-   =========================== */
 .hero {
     position: relative;
     min-height: 100vh;
@@ -370,10 +348,6 @@ ul {
     0%, 100% { top: 6px; opacity: 1; }
     50% { top: 20px; opacity: 0.3; }
 }
-
-/* ===========================
-   Animations
-   =========================== */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -384,10 +358,6 @@ ul {
         transform: translateY(0);
     }
 }
-
-/* ===========================
-   Section Title
-   =========================== */
 .section-title {
     text-align: center;
     font-size: clamp(1.75rem, 4vw, 2.75rem);
@@ -410,10 +380,6 @@ ul {
 .section-title--light {
     color: var(--white);
 }
-
-/* ===========================
-   Destaques Section
-   =========================== */
 .destaques {
     padding: 5rem 2rem;
     background: var(--white);
@@ -503,10 +469,6 @@ ul {
         grid-template-columns: 1fr;
     }
 }
-
-/* ===========================
-   História Section (Seção 2)
-   =========================== */
 .historia {
     position: relative;
     padding: 6rem 2rem;
@@ -566,10 +528,6 @@ ul {
     0%, 100% { transform: translateY(0) rotate(0deg); }
     50% { transform: translateY(-15px) rotate(2deg); }
 }
-
-/* ===========================
-   Scroll Animation States
-   =========================== */
 [data-animate] {
     opacity: 0;
     transform: translateY(50px);
@@ -580,10 +538,6 @@ ul {
     opacity: 1;
     transform: translateY(0);
 }
-
-/* ===========================
-   Timeline Section (Seção 3)
-   =========================== */
 .timeline {
     position: relative;
     padding: 6rem 2rem;
@@ -709,10 +663,6 @@ ul {
     font-size: 0.95rem;
     line-height: 1.7;
 }
-
-/* ===========================
-   Footer
-   =========================== */
 .footer {
     background: var(--dark);
     padding: 2rem;
@@ -736,10 +686,6 @@ ul {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
 }
-
-/* ===========================
-   Scroll to Top Button
-   =========================== */
 .scroll-top {
     position: fixed;
     bottom: 2rem;
@@ -776,12 +722,6 @@ ul {
     width: 28px;
     height: 28px;
 }
-
-/* ===========================
-   Responsive Design
-   =========================== */
-
-/* Tablets */
 @media (max-width: 900px) {
     .historia__content {
         grid-template-columns: 1fr;
@@ -806,8 +746,6 @@ ul {
         width: 100px;
     }
 }
-
-/* Mobile */
 @media (max-width: 600px) {
     .header {
         padding: 0.75rem 1.25rem;
@@ -873,8 +811,6 @@ ul {
         font-size: 1.5rem;
     }
 }
-
-/* Large screens */
 @media (min-width: 1200px) {
     .historia__container {
         max-width: 1200px;

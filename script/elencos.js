@@ -1,6 +1,3 @@
-// ===========================
-// Elencos - Combined Filters (Year + Country)
-// ===========================
 const searchInput = document.getElementById('search-year');
 const countryFilter = document.getElementById('filter-country');
 const cardsContainer = document.getElementById('cards-container');
@@ -42,9 +39,6 @@ if (countryFilter) {
     countryFilter.addEventListener('change', applyFilters);
 }
 
-// ===========================
-// Figurinhas - Stagger Animation
-// ===========================
 const figurinhas = document.querySelectorAll('.figurinha');
 
 if (figurinhas.length > 0) {

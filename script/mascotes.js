@@ -1,6 +1,3 @@
-// ===========================
-// Mascotes - Stagger Animation
-// ===========================
 const mascoteCards = document.querySelectorAll('.mascote-card');
 
 if (mascoteCards.length > 0) {

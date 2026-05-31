@@ -1,6 +1,4 @@
-/* ===========================
-   Elencos - Hero
-   =========================== */
+
 .elencos-hero {
     position: relative;
     min-height: 50vh;
@@ -108,10 +106,6 @@
 .elencos-hero__back:hover {
     transform: translateX(-5px);
 }
-
-/* ===========================
-   Elencos - Grid Section
-   =========================== */
 .elencos-grid {
     padding: 4rem 2rem;
     background: var(--off-white);
@@ -184,10 +178,6 @@
     font-size: 1rem;
     padding: 2rem;
 }
-
-/* ===========================
-   Elenco Card
-   =========================== */
 .elenco-card {
     display: flex;
     align-items: center;
@@ -280,10 +270,6 @@
     color: var(--yellow-dark);
     border: 1px solid var(--yellow);
 }
-
-/* ===========================
-   Figurinhas - Grid
-   =========================== */
 .figurinhas {
     padding: 4rem 2rem;
     background: var(--off-white);
@@ -296,10 +282,6 @@
     max-width: 1200px;
     margin: 0 auto;
 }
-
-/* ===========================
-   Figurinha Card
-   =========================== */
 .figurinha {
     background: var(--white);
     border-radius: 14px;
@@ -408,20 +390,12 @@
 .figurinha--treinador {
     border: 2px solid var(--yellow);
 }
-
-/* ===========================
-   Responsive - Tablet
-   =========================== */
 @media (max-width: 900px) {
     .figurinhas__grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 1rem;
     }
 }
-
-/* ===========================
-   Responsive - Mobile
-   =========================== */
 @media (max-width: 600px) {
     .elencos-grid {
         padding: 3rem 1rem;

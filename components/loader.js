@@ -1,16 +1,8 @@
-// ===========================
-// Component Loader
-// Fetches HTML component files and injects them into placeholders.
-// Usage: Add <div data-component="header"></div> etc. in HTML
-// Set <body data-base-path=""> for root, "../" for pages/, "../../" for pages/casts/
-// Dispatches 'components:loaded' event when all components are injected.
-// ===========================
 
 (function () {
     const basePath = document.body.getAttribute('data-base-path') || '';
     const componentsPath = basePath + 'components/';
 
-    // Determine nav link paths based on depth level
     function getNavLinks() {
         const depth = (basePath.match(/\.\.\//g) || []).length;
 
@@ -46,7 +38,6 @@
 
     const nav = getNavLinks();
 
-    // Replace template placeholders with resolved paths
     function replacePlaceholders(html) {
         return html
             .replace(/\{\{BASE\}\}/g, basePath)
@@ -58,7 +49,6 @@
             .replace(/\{\{NAV_CONTATO\}\}/g, nav.contato);
     }
 
-    // Fetch a component HTML file
     function fetchComponent(name) {
         return fetch(componentsPath + name + '.html')
             .then(function (res) {
@@ -70,7 +60,6 @@
             });
     }
 
-    // Collect all component placeholders
     var placeholders = document.querySelectorAll('[data-component]');
     var fetchPromises = [];
 
@@ -83,7 +72,6 @@
         );
     });
 
-    // Wait for all components, then notify other scripts
     Promise.all(fetchPromises).then(function () {
         document.dispatchEvent(new Event('components:loaded'));
     });

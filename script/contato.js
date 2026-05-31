@@ -1,6 +1,3 @@
-// ===========================
-// Contact Form Handling
-// ===========================
 const contactForm = document.getElementById('contact-form');
 const formFeedback = document.getElementById('form-feedback');
 
@@ -17,7 +14,6 @@ contactForm.addEventListener('submit', (e) => {
         return;
     }
 
-    // Simula envio (sem backend)
     formFeedback.style.color = 'var(--green-light)';
     formFeedback.textContent = '✓ Mensagem enviada com sucesso!';
     contactForm.reset();

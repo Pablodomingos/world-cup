@@ -1,6 +1,4 @@
-/* ===========================
-   Mascotes Hero
-   =========================== */
+
 .mascotes-hero {
     position: relative;
     min-height: 45vh;
@@ -47,10 +45,6 @@
     margin: 0 auto;
     line-height: 1.7;
 }
-
-/* ===========================
-   Mascotes Intro
-   =========================== */
 .mascotes-intro {
     padding: 5rem 2rem;
     background: var(--white);
@@ -68,10 +62,6 @@
     margin-top: 1.5rem;
     text-align: center;
 }
-
-/* ===========================
-   Mascotes Grid
-   =========================== */
 .mascotes-grid {
     padding: 4rem 2rem 6rem;
     background: var(--off-white);
@@ -84,10 +74,6 @@
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 2.5rem;
 }
-
-/* ===========================
-   Mascote Card
-   =========================== */
 .mascote-card {
     background: var(--white);
     border-radius: 16px;
@@ -166,10 +152,6 @@
     color: var(--dark-soft);
     flex: 1;
 }
-
-/* ===========================
-   Responsive
-   =========================== */
 @media (max-width: 900px) {
     .mascotes-grid__container {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
