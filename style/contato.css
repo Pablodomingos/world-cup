@@ -1,0 +1,236 @@
+/* ===========================
+   Contato - Section
+   =========================== */
+.contato {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem 2rem 4rem;
+    overflow: hidden;
+}
+
+.contato__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, var(--green-dark) 0%, var(--blue-dark) 50%, var(--dark) 100%);
+    z-index: -2;
+}
+
+.contato__bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(255, 223, 0, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 80% 20%, rgba(0, 168, 107, 0.1) 0%, transparent 45%);
+    animation: pulseGlow 10s ease-in-out infinite alternate;
+}
+
+.contato__container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    width: 100%;
+}
+
+.contato__title {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--white);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.contato__subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===========================
+   Wrapper (form + social)
+   =========================== */
+.contato__wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* ===========================
+   Formulário
+   =========================== */
+.contato__form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+}
+
+.form__group {
+    margin-bottom: 1.5rem;
+}
+
+.form__label {
+    display: block;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form__input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: var(--white);
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form__input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form__input:focus {
+    outline: none;
+    border-color: var(--yellow);
+    box-shadow: 0 0 0 3px rgba(255, 223, 0, 0.15);
+}
+
+.form__textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form__btn {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    background: var(--yellow);
+    color: var(--green-dark);
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.form__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 223, 0, 0.4);
+}
+
+.form__btn:active {
+    transform: translateY(0);
+}
+
+.form__feedback {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    min-height: 1.2rem;
+    color: var(--green-light);
+    font-weight: 600;
+}
+
+/* ===========================
+   Redes Sociais
+   =========================== */
+.contato__social {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contato__social-title {
+    color: var(--white);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.contato__social-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+}
+
+.contato__social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.contato__social-link:hover {
+    background: rgba(255, 223, 0, 0.1);
+    border-color: rgba(255, 223, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.contato__social-icon {
+    width: 28px;
+    height: 28px;
+    fill: var(--white);
+    transition: fill var(--transition);
+}
+
+.contato__social-link:hover .contato__social-icon {
+    fill: var(--yellow);
+}
+
+/* ===========================
+   Responsive - Tablet
+   =========================== */
+@media (max-width: 900px) {
+    .contato__wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===========================
+   Responsive - Mobile
+   =========================== */
+@media (max-width: 600px) {
+    .contato {
+        padding: 6rem 1.25rem 3rem;
+    }
+
+    .contato__form {
+        padding: 1.75rem;
+    }
+
+    .contato__social {
+        padding: 1.75rem;
+    }
+
+    .contato__title {
+        font-size: 1.75rem;
+    }
+}

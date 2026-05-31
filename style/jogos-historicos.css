@@ -1,0 +1,367 @@
+/* ===========================
+   Jogos Históricos - Hero
+   =========================== */
+.jh-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.jh-hero__bg {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(160deg, var(--green-dark) 0%, var(--blue-dark) 40%, var(--dark) 100%);
+    z-index: -2;
+}
+
+.jh-hero__bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 25% 75%, rgba(255, 223, 0, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 75% 25%, rgba(0, 168, 107, 0.1) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(74, 144, 217, 0.08) 0%, transparent 55%);
+    animation: pulseGlow 10s ease-in-out infinite alternate;
+}
+
+.jh-hero__bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to top, var(--off-white), transparent);
+    z-index: 1;
+}
+
+.jh-hero__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    max-width: 750px;
+}
+
+.jh-hero__title {
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    color: var(--white);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.jh-hero__text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.jh-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 223, 0, 0.15);
+    border: 1px solid rgba(255, 223, 0, 0.4);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    color: var(--yellow);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.jh-hero__badge span {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--yellow);
+    text-shadow: 0 0 20px rgba(255, 223, 0, 0.5);
+}
+
+/* ===========================
+   Jogos Históricos - Timeline
+   =========================== */
+.jh-timeline {
+    padding: 6rem 2rem;
+    background: var(--off-white);
+    overflow: hidden;
+}
+
+.jh-timeline__subtitle {
+    text-align: center;
+    color: var(--dark-soft);
+    font-size: 1.1rem;
+    margin-bottom: 4rem;
+    opacity: 0.8;
+}
+
+.jh-timeline__track {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.jh-timeline__line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--green-light), var(--blue-mid), var(--yellow));
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* Timeline Item Base */
+.jh-timeline__item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 5rem;
+    width: 100%;
+}
+
+.jh-timeline__item:last-child {
+    margin-bottom: 0;
+}
+
+/* Left aligned items */
+.jh-timeline__item--left {
+    justify-content: flex-start;
+    padding-right: calc(50% + 40px);
+}
+
+/* Right aligned items */
+.jh-timeline__item--right {
+    justify-content: flex-end;
+    padding-left: calc(50% + 40px);
+}
+
+/* Timeline Marker */
+.jh-timeline__marker {
+    position: absolute;
+    left: 50%;
+    top: 2rem;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.jh-timeline__marker-year {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--green-mid), var(--blue-dark));
+    color: var(--yellow);
+    font-weight: 800;
+    font-size: 0.85rem;
+    border-radius: 50%;
+    border: 3px solid var(--yellow);
+    box-shadow: 0 0 20px rgba(255, 223, 0, 0.3), 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Timeline Card */
+.jh-timeline__card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    width: 100%;
+}
+
+.jh-timeline__card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.jh-timeline__card-header {
+    padding: 1.5rem 1.5rem 0.75rem;
+}
+
+.jh-timeline__badge {
+    display: inline-block;
+    background: var(--green-mid);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    margin-bottom: 0.5rem;
+}
+
+.jh-timeline__card-header h3 {
+    font-size: 1.4rem;
+    color: var(--green-dark);
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+}
+
+.jh-timeline__card-meta {
+    font-size: 0.85rem;
+    color: var(--dark-soft);
+    opacity: 0.7;
+}
+
+.jh-timeline__card-img {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.jh-timeline__card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.jh-timeline__card:hover .jh-timeline__card-img img {
+    transform: scale(1.05);
+}
+
+.jh-timeline__card-body {
+    padding: 1.5rem;
+}
+
+.jh-timeline__card-body p {
+    color: var(--dark-soft);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+}
+
+.jh-timeline__card-body p:last-of-type {
+    margin-bottom: 1rem;
+}
+
+.jh-timeline__scorers {
+    background: rgba(0, 77, 37, 0.05);
+    border-left: 3px solid var(--green-mid);
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9rem;
+    color: var(--green-dark);
+}
+
+/* ===========================
+   Scroll Animations
+   =========================== */
+[data-animate="fade-right"] {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-animate="fade-left"] {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-animate="fade-right"].animate-visible,
+[data-animate="fade-left"].animate-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ===========================
+   Responsive - Tablet
+   =========================== */
+@media (max-width: 900px) {
+    .jh-timeline__line {
+        left: 24px;
+    }
+
+    .jh-timeline__item--left,
+    .jh-timeline__item--right {
+        padding-left: 70px;
+        padding-right: 0;
+        justify-content: flex-start;
+    }
+
+    .jh-timeline__marker {
+        left: 24px;
+    }
+
+    .jh-timeline__marker-year {
+        width: 48px;
+        height: 48px;
+        font-size: 0.75rem;
+    }
+}
+
+/* ===========================
+   Responsive - Mobile
+   =========================== */
+@media (max-width: 600px) {
+    .jh-timeline {
+        padding: 4rem 1rem;
+    }
+
+    .jh-timeline__line {
+        left: 16px;
+    }
+
+    .jh-timeline__item--left,
+    .jh-timeline__item--right {
+        padding-left: 50px;
+    }
+
+    .jh-timeline__marker {
+        left: 16px;
+    }
+
+    .jh-timeline__marker-year {
+        width: 36px;
+        height: 36px;
+        font-size: 0.65rem;
+        border-width: 2px;
+    }
+
+    .jh-timeline__card-header h3 {
+        font-size: 1.15rem;
+    }
+
+    .jh-timeline__card-img {
+        height: 160px;
+    }
+
+    .jh-timeline__card-body {
+        padding: 1.25rem;
+    }
+
+    .jh-timeline__card-body p {
+        font-size: 0.9rem;
+    }
+
+    .jh-hero__badge span {
+        font-size: 1.5rem;
+    }
+
+    .jh-timeline__item {
+        margin-bottom: 3.5rem;
+    }
+}
+
+/* ===========================
+   Large Screens
+   =========================== */
+@media (min-width: 1200px) {
+    .jh-timeline__track {
+        max-width: 1200px;
+    }
+
+    .jh-timeline__card-img {
+        height: 260px;
+    }
+}

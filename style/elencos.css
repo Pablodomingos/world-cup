@@ -1,0 +1,459 @@
+/* ===========================
+   Elencos - Hero
+   =========================== */
+.elencos-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 5rem;
+}
+
+.elencos-hero--detail {
+    min-height: 45vh;
+    overflow: hidden;
+}
+
+.elencos-hero__banner {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    opacity: 0.18;
+    filter: grayscale(30%) blur(1px);
+    pointer-events: none;
+}
+
+@media (max-width: 900px) {
+    .elencos-hero__banner {
+        object-position: center 30%;
+    }
+}
+
+@media (max-width: 600px) {
+    .elencos-hero__banner {
+        object-position: center 25%;
+        filter: grayscale(30%);
+    }
+}
+
+.elencos-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, var(--green-dark) 0%, var(--blue-dark) 50%, var(--dark) 100%);
+    z-index: -2;
+}
+
+.elencos-hero__bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 30% 70%, rgba(255, 223, 0, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 70% 30%, rgba(0, 168, 107, 0.1) 0%, transparent 45%);
+    animation: pulseGlow 10s ease-in-out infinite alternate;
+}
+
+.elencos-hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2rem;
+}
+
+.elencos-hero__title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--white);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.elencos-hero__title .elenco-card__flag {
+    width: 52px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.elencos-hero__text {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.elencos-hero__text--small {
+    font-size: 0.95rem;
+    opacity: 0.7;
+}
+
+.elencos-hero__back {
+    display: inline-block;
+    color: var(--yellow);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    transition: transform var(--transition);
+}
+
+.elencos-hero__back:hover {
+    transform: translateX(-5px);
+}
+
+/* ===========================
+   Elencos - Grid Section
+   =========================== */
+.elencos-grid {
+    padding: 4rem 2rem;
+    background: var(--off-white);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.elencos-grid__filters {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.elencos-grid__search {
+    flex: 1;
+    min-width: 180px;
+    padding: 0.85rem 1.25rem;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    border: 2px solid rgba(0, 77, 37, 0.2);
+    border-radius: 50px;
+    background: var(--white);
+    color: var(--dark);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.elencos-grid__search:focus {
+    outline: none;
+    border-color: var(--green-mid);
+    box-shadow: 0 0 0 4px rgba(0, 107, 63, 0.1);
+}
+
+.elencos-grid__select {
+    padding: 0.85rem 1.25rem;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    border: 2px solid rgba(0, 77, 37, 0.2);
+    border-radius: 50px;
+    background: var(--white);
+    color: var(--dark);
+    cursor: pointer;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23004d25' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.25rem center;
+    padding-right: 2.75rem;
+}
+
+.elencos-grid__select:focus {
+    outline: none;
+    border-color: var(--green-mid);
+    box-shadow: 0 0 0 4px rgba(0, 107, 63, 0.1);
+}
+
+.elencos-grid__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.elencos-grid__empty {
+    text-align: center;
+    color: var(--dark-soft);
+    font-size: 1rem;
+    padding: 2rem;
+}
+
+/* ===========================
+   Elenco Card
+   =========================== */
+.elenco-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--white);
+    border-radius: 12px;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.elenco-card__flag {
+    width: 42px;
+    height: 28px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+}
+
+.elenco-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: var(--green-light);
+}
+
+.elenco-card--soon {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.elenco-card--soon:hover {
+    transform: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    border-color: transparent;
+}
+
+.elenco-card__year {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--green-dark);
+    min-width: 60px;
+    text-align: center;
+}
+
+.elenco-card__info {
+    flex: 1;
+}
+
+.elenco-card__info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.15rem;
+}
+
+.elenco-card__info p {
+    font-size: 0.85rem;
+    color: var(--dark-soft);
+    opacity: 0.8;
+}
+
+.elenco-card__arrow {
+    font-size: 1.25rem;
+    color: var(--green-mid);
+    transition: transform var(--transition);
+}
+
+.elenco-card:hover .elenco-card__arrow {
+    transform: translateX(4px);
+}
+
+.elenco-card__badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--dark-soft);
+    background: rgba(0, 0, 0, 0.05);
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+}
+
+.elenco-card__badge--highlight {
+    background: rgba(255, 223, 0, 0.2);
+    color: var(--yellow-dark);
+    border: 1px solid var(--yellow);
+}
+
+/* ===========================
+   Figurinhas - Grid
+   =========================== */
+.figurinhas {
+    padding: 4rem 2rem;
+    background: var(--off-white);
+}
+
+.figurinhas__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===========================
+   Figurinha Card
+   =========================== */
+.figurinha {
+    background: var(--white);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-align: center;
+}
+
+.figurinha:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+.figurinha__img-wrapper {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.figurinha__img-wrapper--goleiro {
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+}
+
+.figurinha__img-wrapper--defensor {
+    background: linear-gradient(135deg, var(--blue-mid), var(--blue-dark));
+}
+
+.figurinha__img-wrapper--meio {
+    background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+}
+
+.figurinha__img-wrapper--atacante {
+    background: linear-gradient(135deg, var(--yellow-dark), #e6a800);
+}
+
+.figurinha__img-wrapper--treinador {
+    background: linear-gradient(135deg, var(--dark-soft), var(--dark));
+}
+
+.figurinha__silhouette {
+    font-size: 2rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.25);
+    letter-spacing: 2px;
+}
+
+.figurinha__info {
+    padding: 1rem 0.75rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.figurinha__name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.figurinha__position {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.figurinha__position--goleiro {
+    background: rgba(255, 152, 0, 0.15);
+    color: #e65100;
+}
+
+.figurinha__position--defensor {
+    background: rgba(26, 77, 143, 0.12);
+    color: var(--blue-dark);
+}
+
+.figurinha__position--meio {
+    background: rgba(0, 107, 63, 0.12);
+    color: var(--green-dark);
+}
+
+.figurinha__position--atacante {
+    background: rgba(200, 168, 0, 0.15);
+    color: #8d6e00;
+}
+
+.figurinha__position--treinador {
+    background: rgba(0, 0, 0, 0.08);
+    color: var(--dark-soft);
+}
+
+.figurinha__club {
+    font-size: 0.8rem;
+    color: var(--dark-soft);
+    opacity: 0.8;
+}
+
+.figurinha--treinador {
+    border: 2px solid var(--yellow);
+}
+
+/* ===========================
+   Responsive - Tablet
+   =========================== */
+@media (max-width: 900px) {
+    .figurinhas__grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+}
+
+/* ===========================
+   Responsive - Mobile
+   =========================== */
+@media (max-width: 600px) {
+    .elencos-grid {
+        padding: 3rem 1rem;
+    }
+
+    .elencos-grid__filters {
+        flex-direction: column;
+    }
+
+    .elencos-grid__search,
+    .elencos-grid__select {
+        width: 100%;
+    }
+
+    .elencos-grid__cards {
+        grid-template-columns: 1fr;
+    }
+
+    .figurinhas {
+        padding: 3rem 1rem;
+    }
+
+    .figurinhas__grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .figurinha__img-wrapper {
+        height: 110px;
+    }
+
+    .figurinha__name {
+        font-size: 0.9rem;
+    }
+}
